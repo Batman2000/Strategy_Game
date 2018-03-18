@@ -16,7 +16,7 @@ public:
         set_health(7);
         set_power(10);
         set_speed(15);
-        set_cost(20);
+        set_cost(50);
     }
     void get_health()
     {
@@ -32,7 +32,7 @@ public:
         set_health(20);
         set_power(20);
         set_speed(15);
-        set_cost(35);
+        set_cost(100);
     }
 };
 
@@ -54,7 +54,7 @@ public:
         set_speed(15);
         set_health(18);
         set_speed_of_building(5);
-        set_cost(20);
+        set_cost(30);
     }
 };
 
@@ -108,6 +108,10 @@ public:
         std::this_thread::sleep_for(std::chrono::seconds(speed_of_building_units));
         return f;
     }
+    void ME() override
+    {
+        cout << "dark";
+    }
 };
 
 class dark_bomber: public flying_unit
@@ -130,7 +134,7 @@ public:
     {
         set_health(52);
         set_speed(45);
-        set_cost(85);
+        set_cost(80);
         set_air_attack(39);
         set_ground_attack(0);
     }

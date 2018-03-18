@@ -52,7 +52,7 @@ public:
         set_speed(15);
         set_health(17);
         set_speed_of_building(10);
-        set_cost(27);
+        set_cost(30);
     }
 };
 
@@ -106,6 +106,11 @@ public:
         std::this_thread::sleep_for(std::chrono::seconds(speed_of_building_units));
         return f;
     }
+    void ME() override
+    {
+        std::cout << "human";
+    }
+
 };
 
 class human_bomber: public flying_unit

@@ -6,6 +6,7 @@
 #define MY_FIRST_REAL_STRATEGY_MAIN_LIB_H
 #pragma once
 
+#include <string>
 
 class energy{
 public:
@@ -142,11 +143,11 @@ public:
     }
     int get_cost() override
     {
-        return air_deff+speed+health+get_power();
+        return 2*(air_deff+speed+health+get_power());
     }
 };
 
-void delete_unit_war(unit_war *y)
+void delete_unit(unit *y)
 {
     delete y;
 }
@@ -163,7 +164,6 @@ class main_factory{
 public:
     int cost = 0;
     int speed_of_building_units;
-protected:
     virtual unit_engineer *build_engineer(){
         auto f = new unit_engineer;
         return f;
@@ -176,9 +176,14 @@ protected:
     {
         speed_of_building_units = speed;
     }
+    int get_price()
+    {
+        return cost;
+    }
 };
 
 class air_factory: public main_factory{
+public:
     virtual flying_unit *build_bomber()
     {
         auto f = new flying_unit;
@@ -192,6 +197,7 @@ class air_factory: public main_factory{
 };
 
 class surface_factory:public main_factory{
+public:
     virtual unit_war *build_airdefence(){
         auto f = new unit_war;
         return f;
@@ -220,6 +226,12 @@ class surface_factory:public main_factory{
         energy::decrease_energy(f->get_cost());
         return f;
     }
+
+
+    virtual void ME()
+    {
+        std::cout << "???";
+    }
 };
 
 class main_unit {
@@ -243,5 +255,32 @@ public:
         std::cout << "nuetral";
     }
 };
+
+
+std::string trend(int i)
+{
+    if(i)
+        return "Dark";
+    else
+        return "Human";
+}
+using namespace std;
+void help(int i)
+{
+    cout << "You can build:" << endl;
+    cout << trend(i) << ' ' << "surface factory - press 1" << endl;
+    cout << trend(i) << ' ' << "air factory - press 2" << endl;
+    cout << trend(i) << ' ' << "engineer - press 3" << endl;
+    cout << trend(i) << ' ' << "air fighter - press 4" << endl;
+    cout << trend(i) << ' ' << "air bomber - press 5" << endl;
+    cout << trend(i) << ' ' << "standart surface unit - press 6" << endl;
+    cout << trend(i) << ' ' << "armored surface unit - press 7" << endl;
+    cout << trend(i) << ' ' << "air deffence unit - press 8" << endl;
+    cout << trend(i) << ' ' << "extra surface unit - press 9" << endl;
+    cout << trend(i) << ' ' << "generator of energy - press 10" << endl;
+    cout << "energy level - press 11" << endl;
+    cout << "You can build only 50 units in total" << endl;
+    cout << "you can end session by pressing 0" << endl;
+}
 
 #endif //MY_FIRST_REAL_STRATEGY_MAIN_LIB_H
