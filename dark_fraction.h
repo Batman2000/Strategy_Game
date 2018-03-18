@@ -22,7 +22,7 @@ public:
     {
         std::cout << health;
     }
-
+    ~dark_solider() = default;
 };
 
 class armored_solider :public unit_war{
@@ -34,6 +34,7 @@ public:
         set_speed(15);
         set_cost(100);
     }
+    ~armored_solider() = default;
 };
 
 class fast_dark_scout :public unit_war{
@@ -45,6 +46,7 @@ public:
         set_speed(40);
         set_cost(25);
     }
+    ~fast_dark_scout() = default;
 };
 
 class dark_engineer: public unit_engineer{
@@ -56,6 +58,7 @@ public:
         set_speed_of_building(5);
         set_cost(30);
     }
+    ~dark_engineer() = default;
 };
 
 class dark_anti_aircraft:unit_war{
@@ -73,6 +76,7 @@ public:
         set_air_deff(15);
         set_cost(75);
     }
+    ~dark_anti_aircraft() = default;
 };
 
 
@@ -112,6 +116,7 @@ public:
     {
         cout << "dark";
     }
+    ~dark_surface_factory() = default;
 };
 
 class dark_bomber: public flying_unit
@@ -125,6 +130,7 @@ public:
         set_air_attack(0);
         set_ground_attack(30);
     }
+    ~dark_bomber() = default;
 };
 
 class dark_air_fighter: public flying_unit
@@ -138,6 +144,7 @@ public:
         set_air_attack(39);
         set_ground_attack(0);
     }
+    ~dark_air_fighter() = default;
 };
 
 class dark_air_factory: public air_factory{
@@ -161,6 +168,7 @@ public:
         std::this_thread::sleep_for(std::chrono::seconds(speed_of_building_units));
         return f;
     }
+    ~dark_air_factory() = default;
 };
 
 class dark_main_unit: public main_unit{
@@ -180,6 +188,7 @@ class dark_main_unit: public main_unit{
     {
         std::cout << "dark" << '\n';
     }
+    ~dark_main_unit() = default;
 };
 
 #endif //MY_FIRST_REAL_STRATEGY_DARK_FRACTION_H

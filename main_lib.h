@@ -60,6 +60,7 @@ public:
     {
         return energy_cost;
     }
+    virtual ~unit() = default;
 };
 
 int unit::amount_of_units = 1;
@@ -72,6 +73,7 @@ protected:
     {
         speed_of_building = setted_speed;
     }
+    ~unit_engineer() = default;
 };
 
 class unit_war: public unit{
@@ -106,6 +108,7 @@ public:
         power = 0;
         health = 0;
     }
+    ~unit_war() = default;
 };
 
 class flying_unit: public unit{
@@ -119,6 +122,7 @@ protected:
     {
         attack_of_ground_units = damage;
     }
+    ~flying_unit() = default;
 };
 
 class extra_unit_builder: public unit_war
@@ -145,6 +149,7 @@ public:
     {
         return 2*(air_deff+speed+health+get_power());
     }
+    ~extra_unit_builder() = default;
 };
 
 void delete_unit(unit *y)
@@ -180,6 +185,7 @@ public:
     {
         return cost;
     }
+    virtual ~main_factory() = default;
 };
 
 class air_factory: public main_factory{
@@ -194,6 +200,7 @@ public:
         auto f = new flying_unit;
         return f;
     }
+    ~air_factory() = default;
 };
 
 class surface_factory:public main_factory{
@@ -232,6 +239,7 @@ public:
     {
         std::cout << "???";
     }
+    ~surface_factory() = default;
 };
 
 class main_unit {
@@ -254,6 +262,7 @@ public:
     {
         std::cout << "nuetral";
     }
+    virtual  ~main_unit() = default;
 };
 
 

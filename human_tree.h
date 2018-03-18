@@ -20,6 +20,7 @@ public:
     {
         std::cout << health;
     }
+    ~small_mecha() = default;
 
 };
 
@@ -32,6 +33,7 @@ public:
         set_speed(10);
         set_cost(100);
     }
+    ~armored_mecha() = default;
 };
 
 class fast_scout :public unit_war{
@@ -43,6 +45,7 @@ public:
         set_speed(25);
         set_cost(30);
     }
+    ~fast_scout() = default;
 };
 
 class human_engineer: public unit_engineer{
@@ -54,6 +57,7 @@ public:
         set_speed_of_building(10);
         set_cost(30);
     }
+    ~human_engineer() = default;
 };
 
 class anti_aircraft:unit_war{
@@ -71,6 +75,7 @@ public:
         set_air_deff(15);
         set_cost(75);
     }
+    ~anti_aircraft() = default;
 };
 
 
@@ -110,6 +115,7 @@ public:
     {
         std::cout << "human";
     }
+    ~human_surface_factory() = default;
 
 };
 
@@ -124,6 +130,7 @@ public:
         set_air_attack(0);
         set_ground_attack(35);
     }
+    ~human_bomber() = default;
 };
 
 class human_air_fighter: public flying_unit
@@ -137,6 +144,7 @@ public:
         set_air_attack(40);
         set_ground_attack(0);
     }
+    ~human_air_fighter() = default;
 };
 
 class human_air_factory: public air_factory{
@@ -160,6 +168,7 @@ public:
         std::this_thread::sleep_for(std::chrono::seconds(speed_of_building_units));
         return f;
     }
+    ~human_air_factory() = default;
 };
 
 class human_main_unit: public main_unit{
@@ -179,6 +188,7 @@ class human_main_unit: public main_unit{
     {
         std::cout << "human" << '\n';
     }
+    ~human_main_unit() = default;
 };
 
 #endif //MY_FIRST_REAL_STRATEGY_HUMAN_TREE_H
