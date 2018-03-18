@@ -61,6 +61,10 @@ public:
         return energy_cost;
     }
     virtual ~unit() = default;
+    int get_speed()
+    {
+        return speed;
+    }
 };
 
 int unit::amount_of_units = 1;
@@ -72,6 +76,12 @@ protected:
     void set_speed_of_building(int setted_speed)
     {
         speed_of_building = setted_speed;
+    }
+
+public:
+    int get_speed_of_engineer()
+    {
+        return speed_of_building;
     }
     ~unit_engineer() = default;
 };
@@ -166,13 +176,10 @@ public:
 int generator_of_energy::how_many = 0;
 
 class main_factory{
-public:
+
+protected:
     int cost = 0;
     int speed_of_building_units;
-    virtual unit_engineer *build_engineer(){
-        auto f = new unit_engineer;
-        return f;
-    }
     void set_cost_of_factory(int price)
     {
         cost = price;
@@ -181,6 +188,12 @@ public:
     {
         speed_of_building_units = speed;
     }
+public:
+    virtual unit_engineer *build_engineer(){
+        auto f = new unit_engineer;
+        return f;
+    }
+
     int get_price()
     {
         return cost;
@@ -262,7 +275,6 @@ public:
     {
         std::cout << "nuetral";
     }
-    virtual  ~main_unit() = default;
 };
 
 

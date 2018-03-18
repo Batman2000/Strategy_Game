@@ -20,6 +20,10 @@ public:
     {
         std::cout << health;
     }
+    int get_healthy()
+    {
+        return health;
+    }
     ~small_mecha() = default;
 
 };
@@ -168,6 +172,12 @@ public:
         std::this_thread::sleep_for(std::chrono::seconds(speed_of_building_units));
         return f;
     }
+    human_engineer *build_engineer() override {
+        auto *f = new human_engineer;
+        energy::decrease_energy(f->get_cost());
+        std::this_thread::sleep_for(std::chrono::seconds(speed_of_building_units));
+        return f;
+    }
     ~human_air_factory() = default;
 };
 
@@ -175,13 +185,13 @@ class human_main_unit: public main_unit{
     human_surface_factory *create_surface_factory() override
     {
         auto f = new human_surface_factory;
-        energy::decrease_energy(f->cost);
+        energy::decrease_energy(f->get_price());
         return f;
     }
     human_air_factory* create_air_factory() override
     {
         auto f = new human_air_factory;
-        energy::decrease_energy(f->cost);
+        energy::decrease_energy(f->get_price());
         return f;
     }
     void who_am_i() override
