@@ -42,8 +42,33 @@ TEST(Hard_air, air_factory)
     EXPECT_EQ(40, speed_of_fighter);
     EXPECT_EQ(400, a);
     EXPECT_EQ(10, speed_of_building);
-    delete b,c,d,expert;
+    delete b;
+    delete c;
+    delete d;
+    delete expert;
 
+}
+
+TEST(Hard_surface, surface_factory)
+{
+    auto *control_factory = new human_surface_factory;
+    auto test_1 = control_factory->build_engineer();
+    auto test_3 = control_factory->build_armor_unit();
+    auto test_4 = control_factory->build_fast_unit();
+    auto test_5 = control_factory->build_scout();
+    int price_of_engineer = test_1->get_cost();
+    int speed_of_armor_unit = test_3->get_speed();
+    int price_of_fast_unit = test_4->get_cost();
+    int speed_of_scout = test_5->get_speed();
+    EXPECT_EQ(30, price_of_engineer);
+    EXPECT_EQ(10, speed_of_armor_unit);
+    EXPECT_EQ(50, price_of_fast_unit);
+    EXPECT_EQ(25, speed_of_scout);
+    delete test_1;
+    delete test_3;
+    delete test_4;
+    delete test_5;
+    delete control_factory;
 }
 
 #endif //MY_FIRST_REAL_STRATEGY_TESTS_H

@@ -244,6 +244,7 @@ public:
         f->set_power(power);
         f->set_health(health);
         energy::decrease_energy(f->get_cost());
+        std::cout << "extra unit is built" << std::endl;
         return f;
     }
 
