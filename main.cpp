@@ -18,12 +18,11 @@ void thread_for_energy_change()
     }
 }
 
-
-using namespace std;
-
-
-
-int main() {
+void check_point_1()
+{
+    //This is just created to make life easier
+    //I don't know how to name it in English, so we usually call it "заглушка"
+    using namespace std;
     thread thread_of_moment(thread_for_energy_change);
     vector <main_unit *> commander(2);
     commander[0] = new human_main_unit;
@@ -195,7 +194,7 @@ int main() {
     }
     for(int i = 0; i < all_units.size(); ++i)
     {
-        delete_unit(all_units[i]);
+        delete all_units[i];
     }
     for(int i = 0; i < Sfactories.size(); ++i)
     {
@@ -213,5 +212,9 @@ int main() {
     }
     if(thread_of_moment.joinable())
         thread_of_moment.join();
+}
+
+int main() {
+    check_point_1();
     return 0;
 }

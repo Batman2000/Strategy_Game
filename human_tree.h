@@ -28,7 +28,7 @@ public:
 
 };
 
-class armored_mecha :public unit_war{
+class armored_mecha: public unit_war{
 public:
     armored_mecha()
     {
@@ -40,7 +40,7 @@ public:
     ~armored_mecha() = default;
 };
 
-class fast_scout :public unit_war{
+class fast_scout: public unit_war{
 public:
     fast_scout()
     {
@@ -64,7 +64,7 @@ public:
     ~human_engineer() = default;
 };
 
-class anti_aircraft:unit_war{
+class anti_aircraft: public unit_war{
 public:
     int air_deff;
     void set_air_deff(int damage)
@@ -84,7 +84,7 @@ public:
 
 
 
-class human_surface_factory:public surface_factory{
+class human_surface_factory: public surface_factory{
 public:
     human_surface_factory()
     {
@@ -188,7 +188,7 @@ class human_main_unit: public main_unit{
         energy::decrease_energy(f->get_price());
         return f;
     }
-    human_air_factory* create_air_factory() override
+    human_air_factory *create_air_factory() override
     {
         auto f = new human_air_factory;
         energy::decrease_energy(f->get_price());

@@ -25,7 +25,7 @@ public:
     ~dark_solider() = default;
 };
 
-class armored_solider :public unit_war{
+class armored_solider: public unit_war{
 public:
     armored_solider()
     {
@@ -37,7 +37,7 @@ public:
     ~armored_solider() = default;
 };
 
-class fast_dark_scout :public unit_war{
+class fast_dark_scout: public unit_war{
 public:
     fast_dark_scout()
     {
@@ -61,7 +61,7 @@ public:
     ~dark_engineer() = default;
 };
 
-class dark_anti_aircraft:unit_war{
+class dark_anti_aircraft: public unit_war{
 public:
     int air_deff;
     void set_air_deff(int damage)
@@ -81,7 +81,7 @@ public:
 
 
 
-class dark_surface_factory:public surface_factory{
+class dark_surface_factory: public surface_factory{
 public:
     dark_surface_factory()
     {
@@ -184,7 +184,7 @@ class dark_main_unit: public main_unit{
         energy::decrease_energy(f->get_price());
         return f;
     }
-    dark_air_factory* create_air_factory() override
+    dark_air_factory *create_air_factory() override
     {
         auto f = new dark_air_factory;
         energy::decrease_energy(f->get_price());

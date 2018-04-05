@@ -69,7 +69,7 @@ public:
 
 int unit::amount_of_units = 1;
 
-class unit_engineer : public unit{
+class unit_engineer: public unit{
 
     int speed_of_building;
 protected:
@@ -162,10 +162,6 @@ public:
     ~extra_unit_builder() = default;
 };
 
-void delete_unit(unit *y)
-{
-    delete y;
-}
 
 class generator_of_energy{
 public:
@@ -216,7 +212,7 @@ public:
     ~air_factory() = default;
 };
 
-class surface_factory:public main_factory{
+class surface_factory: public main_factory{
 public:
     virtual unit_war *build_airdefence(){
         auto f = new unit_war;
@@ -234,7 +230,7 @@ public:
         auto f = new unit_war;
         return f;
     }
-    virtual extra_unit_builder*build_extra_unit(){
+    virtual extra_unit_builder *build_extra_unit(){
         auto f = new extra_unit_builder;
         std::cout << "Please type speed, health, power and air_deffence of extra unit" << std::endl;
         int speed, health, power, air_deff;
@@ -276,6 +272,7 @@ public:
     {
         std::cout << "nuetral";
     }
+    virtual ~main_unit() = default;
 };
 
 
