@@ -56,12 +56,12 @@ protected:
     }
 
 public:
-    virtual int get_cost()
+    virtual const int get_cost()
     {
         return energy_cost;
     }
     virtual ~unit() = default;
-    int get_speed()
+    const int get_speed()
     {
         return speed;
     }
@@ -79,7 +79,7 @@ protected:
     }
 
 public:
-    int get_speed_of_engineer()
+    const int get_speed_of_engineer()
     {
         return speed_of_building;
     }
@@ -93,7 +93,7 @@ protected:
     virtual void set_power(int b){
         power = b;
     }
-    int get_power()
+    const int get_power()
     {
         return power;
     }
@@ -155,7 +155,7 @@ public:
     {
         power = _power;
     }
-    int get_cost() override
+    const int get_cost() override
     {
         return 2*(air_deff+speed+health+get_power());
     }
@@ -190,7 +190,7 @@ public:
         return f;
     }
 
-    int get_price()
+    const int get_price()
     {
         return cost;
     }
