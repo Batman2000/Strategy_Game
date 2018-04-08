@@ -17,11 +17,167 @@ void thread_for_energy_change()
         //std::cout << energy::energy_of_player << std::endl;
     }
 }
+template <typename T>
+void delete_v(vector <T> &a)
+{
+    for(int i = 0; i < a.size(); ++i)
+    {
+        delete a[i];
+    }
+}
+
+void error_message()
+{
+    std::cout << "Error, u don't have enough energy or u have too many units or any factories" << std::endl;
+}
+
+void energy_error_message()
+{
+    std::cout << "Sorry, u don't have enough energy" << std::endl;
+}
+
+void command_1(int i, vector <main_unit *> &commander, vector <surface_factory *> &Sfactories, vector <surface_factory *> &sur_fact)
+{
+    if(energy::energy_of_player >= sur_fact[i]->get_price()) {
+        auto d = commander[i]->create_surface_factory();
+        Sfactories.push_back(d);
+    }
+    else
+    {
+        energy_error_message();
+    }
+}
+
+void command_2(int i, vector <main_unit *> &commander, vector <air_factory *> &Afactories, vector<air_factory *> &air_fact)
+{
+    if(energy::energy_of_player >= air_fact[i]->get_price()) {
+        auto d = commander[i]->create_air_factory();
+        Afactories.push_back(d);
+    }
+    else
+    {
+        energy_error_message();
+    }
+}
+
+void command_3(vector <surface_factory *> &Sfactories, vector <air_factory *> &Afactories, vector <unit *> &all_units)
+{
+    if(Sfactories.size() + Afactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 30)
+    {
+        if(Sfactories.size() > 0)
+        {
+            all_units.push_back(Sfactories[0]->build_engineer());
+        }
+        if(Afactories.size() > 0)
+        {
+            all_units.push_back(Afactories[0]->build_engineer());
+        }
+    }
+    else
+    {
+        error_message();
+    }
+}
+
+void command_4(vector <air_factory *> &Afactories, vector <unit *> &all_units)
+{
+    if(Afactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 80)
+    {
+        {
+            all_units.push_back(Afactories[0]->build_fighter());
+        }
+    }
+    else
+    {
+        error_message();
+    }
+}
+
+
+void command_5(vector <air_factory *> &Afactories, vector <unit *> &all_units)
+{
+    if(Afactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 75)
+    {
+        {
+            all_units.push_back(Afactories[0]->build_bomber());
+        }
+    }
+    else
+    {
+        error_message();
+    }
+}
+
+void command_6(vector <surface_factory *> &Sfactories, vector <unit *> &all_units)
+{
+    if(Sfactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 50)
+    {
+        {
+            all_units.push_back(Sfactories[0]->build_fast_unit());
+        }
+    }
+    else
+    {
+        error_message();
+    }
+}
+
+void command_7(vector <surface_factory *> &Sfactories, vector <unit *> &all_units)
+{
+    if(Sfactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 100)
+    {
+        {
+            all_units.push_back(Sfactories[0]->build_armor_unit());
+        }
+    }
+    else
+    {
+        error_message();
+    }
+}
+
+void command_8(vector <surface_factory *> &Sfactories, vector <unit *> &all_units)
+{
+    if(Sfactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 75)
+    {
+        {
+            all_units.push_back(Sfactories[0]->build_airdefence());
+        }
+    }
+    else
+    {
+        error_message();
+    }
+}
+
+void command_9(vector <surface_factory *> &Sfactories, vector <unit *> &all_units)
+{
+    if(Sfactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 150)
+    {
+        {
+            all_units.push_back(Sfactories[0]->build_extra_unit());
+        }
+    }
+    else
+    {
+        error_message();
+    }
+}
+
+void command_10(int i, vector <main_unit *> &commander)
+{
+    commander[i]->create_generator();
+}
+
+void status_of_energy()
+{
+    std::cout << energy::energy_of_player << std::endl;
+}
 
 void check_point_1()
 {
     //This is just created to make life easier
-    //I don't know how to name it in English, so we usually call it "заглушка"
+    //stub
     using namespace std;
     thread thread_of_moment(thread_for_energy_change);
     vector <main_unit *> commander(2);
@@ -60,156 +216,55 @@ void check_point_1()
         }
         if(s == "1")
         {
-            if(energy::energy_of_player >= sur_fact[i]->get_price()) {
-                auto d = commander[i]->create_surface_factory();
-                Sfactories.push_back(d);
-            }
-            else
-            {
-                cout << "Sorry, u don't have enough energy" << endl;
-            }
+            command_1(i, commander, Sfactories, sur_fact);
         }
         if(s == "2")
         {
-            if(energy::energy_of_player >= air_fact[i]->get_price()) {
-                auto d = commander[i]->create_air_factory();
-                Afactories.push_back(d);
-            }
-            else
-            {
-                cout << "Sorry, u don't have enough energy" << endl;
-            }
+            command_2(i, commander, Afactories, air_fact);
         }
         if(s == "3")
         {
-            if(Sfactories.size() + Afactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 30)
-            {
-                if(Sfactories.size() > 0)
-                {
-                    all_units.push_back(Sfactories[0]->build_engineer());
-                }
-                if(Afactories.size() > 0)
-                {
-                    all_units.push_back(Afactories[0]->build_engineer());
-                }
-            }
-            else
-            {
-                cout << "Error, u don't have enough energy or u have too many units or any factories" << endl;
-            }
-
+            command_3(Sfactories, Afactories, all_units);
         }
         if(s == "4")
         {
-            if(Afactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 80)
-            {
-                {
-                    all_units.push_back(Afactories[0]->build_fighter());
-                }
-            }
-            else
-            {
-                cout << "Error, u don't have enough energy or u have too many units or any factories" << endl;
-            }
-
+            command_4(Afactories, all_units);
         }
         if(s == "5")
         {
-            if(Afactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 75)
-            {
-                {
-                    all_units.push_back(Afactories[0]->build_bomber());
-                }
-            }
-            else
-            {
-                cout << "Error, u don't have enough energy or u have too many units or any factories" << endl;
-            }
-
+            command_5(Afactories, all_units);
         }
         if(s == "6")
         {
-            if(Sfactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 50)
-            {
-                {
-                    all_units.push_back(Sfactories[0]->build_fast_unit());
-                }
-            }
-            else
-            {
-                cout << "Error, u don't have enough energy or u have too many units or any factories" << endl;
-            }
-
+            command_6(Sfactories, all_units);
         }
         if(s == "7")
         {
-            if(Sfactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 100)
-            {
-                {
-                    all_units.push_back(Sfactories[0]->build_armor_unit());
-                }
-            }
-            else
-            {
-                cout << "Error, u don't have enough energy or u have too many units or any factories" << endl;
-            }
-
+            command_7(Sfactories, all_units);
         }
         if(s == "8")
         {
-            if(Sfactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 75)
-            {
-                {
-                    all_units.push_back(Sfactories[0]->build_airdefence());
-                }
-            }
-            else
-            {
-                cout << "Error, u don't have enough energy or u have too many units or any factories" << endl;
-            }
-
+            command_8(Sfactories, all_units);
         }
         if(s == "9")
         {
-            if(Sfactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 150)
-            {
-                {
-                    all_units.push_back(Sfactories[0]->build_extra_unit());
-                }
-            }
-            else
-            {
-                cout << "Error, u don't have enough energy or u have too many units or any factories" << endl;
-            }
-
+            command_9(Sfactories, all_units);
         }
         if(s == "10")
         {
-            commander[i]->create_generator();
+            command_10(i, commander);
         }
         if(s == "11")
         {
-            cout << energy::energy_of_player << endl;
+            status_of_energy();
         }
     }
-    for(int i = 0; i < all_units.size(); ++i)
-    {
-        delete all_units[i];
-    }
-    for(int i = 0; i < Sfactories.size(); ++i)
-    {
-        delete Sfactories[i];
-    }
-    for(int i = 0; i < Afactories.size(); ++i)
-    {
-        delete Afactories[i];
-    }
-    for(int j = 0; j < 2; ++j)
-    {
-        delete commander[j];
-        delete sur_fact[j];
-        delete air_fact[j];
-    }
+    delete_v(all_units);
+    delete_v(Sfactories);
+    delete_v(Afactories);
+    delete_v(commander);
+    delete_v(sur_fact);
+    delete_v(air_fact);
     if(thread_of_moment.joinable())
         thread_of_moment.join();
 }
