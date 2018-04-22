@@ -7,7 +7,7 @@
 #pragma once
 #include <gtest/gtest.h>
 #include "human_tree.h"
-
+#include "squad.h"
 TEST(Unit, small_mecha_param)
 {
     small_mecha *a = new small_mecha;
@@ -69,6 +69,14 @@ TEST(Hard_surface, surface_factory)
     delete test_4;
     delete test_5;
     delete control_factory;
+}
+
+TEST(Squad, squad_units)
+{
+    unit_war* f = new human_air_fighter;
+    squad w;
+    w.add(f);
+    EXPECT_EQ(1, w.get_number());
 }
 
 #endif //MY_FIRST_REAL_STRATEGY_TESTS_H

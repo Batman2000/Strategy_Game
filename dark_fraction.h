@@ -68,6 +68,10 @@ public:
     {
         air_deff = damage;
     }
+    const int get_air_deffence() override
+    {
+        return air_deff;
+    }
     dark_anti_aircraft()
     {
         set_speed(10);
