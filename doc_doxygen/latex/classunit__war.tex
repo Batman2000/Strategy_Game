@@ -1,0 +1,104 @@
+\hypertarget{classunit__war}{}\section{unit\+\_\+war Class Reference}
+\label{classunit__war}\index{unit\+\_\+war@{unit\+\_\+war}}
+
+
+{\ttfamily \#include $<$main\+\_\+lib.\+h$>$}
+
+Inheritance diagram for unit\+\_\+war\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{classunit__war}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual const int \mbox{\hyperlink{classunit__war_adea1fced490739cf8b7a6e49ec90cf59}{get\+\_\+power}} ()
+\item 
+virtual const int \mbox{\hyperlink{classunit__war_af26f2da420a828230a329339bc9ef805}{get\+\_\+air\+\_\+deffence}} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classunit__war_a8ea09eb3e352d5a3b2d7611ac78124a2}{set\+\_\+power}} (int b)
+\item 
+void \mbox{\hyperlink{classunit__war_ae171887cd752f92cee8cc4e32c541684}{decrease\+\_\+health}} (int damage)
+\item 
+void \mbox{\hyperlink{classunit__war_a9f1ae061c0761d35bdaaac8098d69dd0}{attack}} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classunit__war_a05e852a78db3b69cbbf0b73a568f9dc2}\label{classunit__war_a05e852a78db3b69cbbf0b73a568f9dc2}} 
+int {\bfseries power}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+brief main prototype for units created for battles 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classunit__war_a9f1ae061c0761d35bdaaac8098d69dd0}\label{classunit__war_a9f1ae061c0761d35bdaaac8098d69dd0}} 
+\index{unit\+\_\+war@{unit\+\_\+war}!attack@{attack}}
+\index{attack@{attack}!unit\+\_\+war@{unit\+\_\+war}}
+\subsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily void unit\+\_\+war\+::attack (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+brief attacks someone \mbox{\Hypertarget{classunit__war_ae171887cd752f92cee8cc4e32c541684}\label{classunit__war_ae171887cd752f92cee8cc4e32c541684}} 
+\index{unit\+\_\+war@{unit\+\_\+war}!decrease\+\_\+health@{decrease\+\_\+health}}
+\index{decrease\+\_\+health@{decrease\+\_\+health}!unit\+\_\+war@{unit\+\_\+war}}
+\subsubsection{\texorpdfstring{decrease\+\_\+health()}{decrease\_health()}}
+{\footnotesize\ttfamily void unit\+\_\+war\+::decrease\+\_\+health (\begin{DoxyParamCaption}\item[{int}]{damage }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+brief decreases health during battle 
+\begin{DoxyParams}{Parameters}
+{\em damage} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classunit__war_af26f2da420a828230a329339bc9ef805}\label{classunit__war_af26f2da420a828230a329339bc9ef805}} 
+\index{unit\+\_\+war@{unit\+\_\+war}!get\+\_\+air\+\_\+deffence@{get\+\_\+air\+\_\+deffence}}
+\index{get\+\_\+air\+\_\+deffence@{get\+\_\+air\+\_\+deffence}!unit\+\_\+war@{unit\+\_\+war}}
+\subsubsection{\texorpdfstring{get\+\_\+air\+\_\+deffence()}{get\_air\_deffence()}}
+{\footnotesize\ttfamily virtual const int unit\+\_\+war\+::get\+\_\+air\+\_\+deffence (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+brief air\+\_\+defence power info \begin{DoxyReturn}{Returns}
+air defence power 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classflying__unit_a47dbbf3832a5b5e8f5365d87cdbfddab}{flying\+\_\+unit}}, \mbox{\hyperlink{classanti__aircraft_aae33f6c35fe31aaefcf0e0cb73838de1}{anti\+\_\+aircraft}}, \mbox{\hyperlink{classdark__anti__aircraft_a572ddd2093ff6e8479392b788a5be231}{dark\+\_\+anti\+\_\+aircraft}}, and \mbox{\hyperlink{classsquad_ac3655293ec84ecdecd668b6bc0b76ec6}{squad}}.
+
+\mbox{\Hypertarget{classunit__war_adea1fced490739cf8b7a6e49ec90cf59}\label{classunit__war_adea1fced490739cf8b7a6e49ec90cf59}} 
+\index{unit\+\_\+war@{unit\+\_\+war}!get\+\_\+power@{get\+\_\+power}}
+\index{get\+\_\+power@{get\+\_\+power}!unit\+\_\+war@{unit\+\_\+war}}
+\subsubsection{\texorpdfstring{get\+\_\+power()}{get\_power()}}
+{\footnotesize\ttfamily virtual const int unit\+\_\+war\+::get\+\_\+power (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+brief returns power of unit \begin{DoxyReturn}{Returns}
+power of unit 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classflying__unit_a95333465a28d47bc5d50427fd3e2cef4}{flying\+\_\+unit}}, and \mbox{\hyperlink{classsquad_a7e719229279a2dd4948f1949d2fe2ccc}{squad}}.
+
+\mbox{\Hypertarget{classunit__war_a8ea09eb3e352d5a3b2d7611ac78124a2}\label{classunit__war_a8ea09eb3e352d5a3b2d7611ac78124a2}} 
+\index{unit\+\_\+war@{unit\+\_\+war}!set\+\_\+power@{set\+\_\+power}}
+\index{set\+\_\+power@{set\+\_\+power}!unit\+\_\+war@{unit\+\_\+war}}
+\subsubsection{\texorpdfstring{set\+\_\+power()}{set\_power()}}
+{\footnotesize\ttfamily virtual void unit\+\_\+war\+::set\+\_\+power (\begin{DoxyParamCaption}\item[{int}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+brief sets power of unit 
+\begin{DoxyParams}{Parameters}
+{\em b} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classextra__unit__builder_a98602fd267039102bd6b431bdf5b658d}{extra\+\_\+unit\+\_\+builder}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+main\+\_\+lib.\+h\end{DoxyCompactItemize}

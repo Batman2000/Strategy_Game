@@ -1,0 +1,139 @@
+\hypertarget{classunit}{}\section{unit Class Reference}
+\label{classunit}\index{unit@{unit}}
+
+
+{\ttfamily \#include $<$main\+\_\+lib.\+h$>$}
+
+Inheritance diagram for unit\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{classunit}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual const int \mbox{\hyperlink{classunit_a817ef860467c21c378deb39f738c33e0}{get\+\_\+cost}} ()
+\item 
+virtual const int \mbox{\hyperlink{classunit_af81d18961574843ddaa5273bfb57cf7f}{get\+\_\+speed}} ()
+\item 
+virtual const int \mbox{\hyperlink{classunit_ab417b46197e2490f7fe279a9219e0f3c}{get\+\_\+number}} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classunit_a31777e05331f1b9253a487820eaf5e3c}\label{classunit_a31777e05331f1b9253a487820eaf5e3c}} 
+static int {\bfseries amount\+\_\+of\+\_\+units} = 0
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classunit_a3b2dbfe9c1daaf2b8ef6b604d7803dc2}{set\+\_\+speed}} (int a)
+\item 
+virtual void \mbox{\hyperlink{classunit_a1dabc406074919750b1c606496e8e42d}{set\+\_\+health}} (int c)
+\item 
+void \mbox{\hyperlink{classunit_a1f7b84a24ff09c2653e5c6d2d046472e}{set\+\_\+cost}} (int price)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classunit_aeefab70a4b68985ea17e1acf9694e765}\label{classunit_aeefab70a4b68985ea17e1acf9694e765}} 
+int {\bfseries health}
+\item 
+\mbox{\Hypertarget{classunit_aa5cd467b54f26a2bf446ba27d913d035}\label{classunit_aa5cd467b54f26a2bf446ba27d913d035}} 
+int {\bfseries speed}
+\item 
+\mbox{\Hypertarget{classunit_a9101170be3651fe1f7169ab7275715b1}\label{classunit_a9101170be3651fe1f7169ab7275715b1}} 
+int {\bfseries energy\+\_\+cost}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+brief main class for unit in this game 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classunit_a817ef860467c21c378deb39f738c33e0}\label{classunit_a817ef860467c21c378deb39f738c33e0}} 
+\index{unit@{unit}!get\+\_\+cost@{get\+\_\+cost}}
+\index{get\+\_\+cost@{get\+\_\+cost}!unit@{unit}}
+\subsubsection{\texorpdfstring{get\+\_\+cost()}{get\_cost()}}
+{\footnotesize\ttfamily virtual const int unit\+::get\+\_\+cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+func that returns cost of the unit \begin{DoxyReturn}{Returns}
+cost of the unit 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classextra__unit__builder_a84ce334361c5acd1a59775a74fabde86}{extra\+\_\+unit\+\_\+builder}}.
+
+\mbox{\Hypertarget{classunit_ab417b46197e2490f7fe279a9219e0f3c}\label{classunit_ab417b46197e2490f7fe279a9219e0f3c}} 
+\index{unit@{unit}!get\+\_\+number@{get\+\_\+number}}
+\index{get\+\_\+number@{get\+\_\+number}!unit@{unit}}
+\subsubsection{\texorpdfstring{get\+\_\+number()}{get\_number()}}
+{\footnotesize\ttfamily virtual const int unit\+::get\+\_\+number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+brief just a func for composite pattern compatibility \begin{DoxyReturn}{Returns}
+1 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classsquad_a3b0a216e733b85a86721d4cef8c61f09}{squad}}.
+
+\mbox{\Hypertarget{classunit_af81d18961574843ddaa5273bfb57cf7f}\label{classunit_af81d18961574843ddaa5273bfb57cf7f}} 
+\index{unit@{unit}!get\+\_\+speed@{get\+\_\+speed}}
+\index{get\+\_\+speed@{get\+\_\+speed}!unit@{unit}}
+\subsubsection{\texorpdfstring{get\+\_\+speed()}{get\_speed()}}
+{\footnotesize\ttfamily virtual const int unit\+::get\+\_\+speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+brief returns max speed of unit \begin{DoxyReturn}{Returns}
+max speed of unit 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classsquad_a61378460e6a249acba2c201572449691}{squad}}.
+
+\mbox{\Hypertarget{classunit_a1f7b84a24ff09c2653e5c6d2d046472e}\label{classunit_a1f7b84a24ff09c2653e5c6d2d046472e}} 
+\index{unit@{unit}!set\+\_\+cost@{set\+\_\+cost}}
+\index{set\+\_\+cost@{set\+\_\+cost}!unit@{unit}}
+\subsubsection{\texorpdfstring{set\+\_\+cost()}{set\_cost()}}
+{\footnotesize\ttfamily void unit\+::set\+\_\+cost (\begin{DoxyParamCaption}\item[{int}]{price }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+brief sets cost of the unit 
+\begin{DoxyParams}{Parameters}
+{\em price} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classunit_a1dabc406074919750b1c606496e8e42d}\label{classunit_a1dabc406074919750b1c606496e8e42d}} 
+\index{unit@{unit}!set\+\_\+health@{set\+\_\+health}}
+\index{set\+\_\+health@{set\+\_\+health}!unit@{unit}}
+\subsubsection{\texorpdfstring{set\+\_\+health()}{set\_health()}}
+{\footnotesize\ttfamily virtual void unit\+::set\+\_\+health (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+brief sets health of unit 
+\begin{DoxyParams}{Parameters}
+{\em c} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classextra__unit__builder_a7471f05c65d3f2c230c405ec0bcdaa7d}{extra\+\_\+unit\+\_\+builder}}.
+
+\mbox{\Hypertarget{classunit_a3b2dbfe9c1daaf2b8ef6b604d7803dc2}\label{classunit_a3b2dbfe9c1daaf2b8ef6b604d7803dc2}} 
+\index{unit@{unit}!set\+\_\+speed@{set\+\_\+speed}}
+\index{set\+\_\+speed@{set\+\_\+speed}!unit@{unit}}
+\subsubsection{\texorpdfstring{set\+\_\+speed()}{set\_speed()}}
+{\footnotesize\ttfamily virtual void unit\+::set\+\_\+speed (\begin{DoxyParamCaption}\item[{int}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+brief sets speed of unit 
+\begin{DoxyParams}{Parameters}
+{\em a} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classextra__unit__builder_aa95d6dcfba85a06592d6725baebd51cc}{extra\+\_\+unit\+\_\+builder}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+main\+\_\+lib.\+h\end{DoxyCompactItemize}

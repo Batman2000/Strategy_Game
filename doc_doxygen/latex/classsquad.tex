@@ -1,0 +1,96 @@
+\hypertarget{classsquad}{}\section{squad Class Reference}
+\label{classsquad}\index{squad@{squad}}
+
+
+{\ttfamily \#include $<$squad.\+h$>$}
+
+Inheritance diagram for squad\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{classsquad}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{classsquad_a7e719229279a2dd4948f1949d2fe2ccc}{get\+\_\+power}} () override
+\item 
+const int \mbox{\hyperlink{classsquad_a3b0a216e733b85a86721d4cef8c61f09}{get\+\_\+number}} () override
+\item 
+const int \mbox{\hyperlink{classsquad_a61378460e6a249acba2c201572449691}{get\+\_\+speed}} () override
+\item 
+\mbox{\Hypertarget{classsquad_ada3e4ba8d6b12a0cfbe26d7c5cf676a1}\label{classsquad_ada3e4ba8d6b12a0cfbe26d7c5cf676a1}} 
+void {\bfseries add} (\mbox{\hyperlink{classunit__war}{unit\+\_\+war}} $\ast$reinforcement)
+\item 
+const int \mbox{\hyperlink{classsquad_ac3655293ec84ecdecd668b6bc0b76ec6}{get\+\_\+air\+\_\+deffence}} () override
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsquad_aa0258c60cdff4900cd897cabbd3de47f}\label{classsquad_aa0258c60cdff4900cd897cabbd3de47f}} 
+std\+::vector$<$ \mbox{\hyperlink{classunit__war}{unit\+\_\+war}} $\ast$ $>$ {\bfseries units}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+brief a class which can contain some units one of the composite pattern part 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classsquad_ac3655293ec84ecdecd668b6bc0b76ec6}\label{classsquad_ac3655293ec84ecdecd668b6bc0b76ec6}} 
+\index{squad@{squad}!get\+\_\+air\+\_\+deffence@{get\+\_\+air\+\_\+deffence}}
+\index{get\+\_\+air\+\_\+deffence@{get\+\_\+air\+\_\+deffence}!squad@{squad}}
+\subsubsection{\texorpdfstring{get\+\_\+air\+\_\+deffence()}{get\_air\_deffence()}}
+{\footnotesize\ttfamily const int squad\+::get\+\_\+air\+\_\+deffence (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+brief air\+\_\+defence power info \begin{DoxyReturn}{Returns}
+air defence power 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classunit__war_af26f2da420a828230a329339bc9ef805}{unit\+\_\+war}}.
+
+\mbox{\Hypertarget{classsquad_a3b0a216e733b85a86721d4cef8c61f09}\label{classsquad_a3b0a216e733b85a86721d4cef8c61f09}} 
+\index{squad@{squad}!get\+\_\+number@{get\+\_\+number}}
+\index{get\+\_\+number@{get\+\_\+number}!squad@{squad}}
+\subsubsection{\texorpdfstring{get\+\_\+number()}{get\_number()}}
+{\footnotesize\ttfamily const int squad\+::get\+\_\+number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+brief just a func for composite pattern compatibility \begin{DoxyReturn}{Returns}
+1 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classunit_ab417b46197e2490f7fe279a9219e0f3c}{unit}}.
+
+\mbox{\Hypertarget{classsquad_a7e719229279a2dd4948f1949d2fe2ccc}\label{classsquad_a7e719229279a2dd4948f1949d2fe2ccc}} 
+\index{squad@{squad}!get\+\_\+power@{get\+\_\+power}}
+\index{get\+\_\+power@{get\+\_\+power}!squad@{squad}}
+\subsubsection{\texorpdfstring{get\+\_\+power()}{get\_power()}}
+{\footnotesize\ttfamily const int squad\+::get\+\_\+power (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+brief returns power of unit \begin{DoxyReturn}{Returns}
+power of unit 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classunit__war_adea1fced490739cf8b7a6e49ec90cf59}{unit\+\_\+war}}.
+
+\mbox{\Hypertarget{classsquad_a61378460e6a249acba2c201572449691}\label{classsquad_a61378460e6a249acba2c201572449691}} 
+\index{squad@{squad}!get\+\_\+speed@{get\+\_\+speed}}
+\index{get\+\_\+speed@{get\+\_\+speed}!squad@{squad}}
+\subsubsection{\texorpdfstring{get\+\_\+speed()}{get\_speed()}}
+{\footnotesize\ttfamily const int squad\+::get\+\_\+speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+brief returns max speed of unit \begin{DoxyReturn}{Returns}
+max speed of unit 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classunit_af81d18961574843ddaa5273bfb57cf7f}{unit}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+squad.\+h\end{DoxyCompactItemize}
