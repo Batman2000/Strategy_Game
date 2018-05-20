@@ -431,6 +431,7 @@ void help_2(int i)
     cout << trend(i) << ' ' << "army - press 13" << endl;
     cout << "After every unit you want to create write s and number to add it to squad number or a to army" << endl;
     cout << "Write s num1 a num2 to add squad to army" << endl;
+    cout << "Write 'attack num1 num2' to to know if squad num 1 will win in battle or squad num2" << endl;
     cout << "You can build only 50 units in total" << endl;
     cout << "you can end session by pressing 0" << endl;
 }

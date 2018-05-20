@@ -15,6 +15,8 @@
 #include <thread>
 #include <chrono>
 #include "army.h"
+#include "command.h"
+#include "simple_button.h"
 /**
  * brief special thread for works with energy
  */
@@ -45,149 +47,181 @@ public:
         }
     }
 
-    void error_message()
+    static void error_message()
     {
         std::cout << "Error, u don't have enough energy or u have too many units or any factories" << std::endl;
     }
 
-    void energy_error_message()
+    static void energy_error_message()
     {
         std::cout << "Sorry, u don't have enough energy" << std::endl;
     }
 
-    void command_1(int i, vector <main_unit *> &commander, vector <surface_factory *> &Sfactories, vector <surface_factory *> &sur_fact)
-    {
-        if(energy::energy_of_player >= sur_fact[i]->get_price()) {
-            auto d = commander[i]->create_surface_factory();
-            Sfactories.push_back(d);
-        }
-        else
-        {
-            energy_error_message();
-        }
-    }
+    class command_1: public command {
+    public:
 
-    void command_2(int i, vector <main_unit *> &commander, vector <air_factory *> &Afactories, vector<air_factory *> &air_fact)
-    {
-        if(energy::energy_of_player >= air_fact[i]->get_price()) {
-            auto d = commander[i]->create_air_factory();
-            Afactories.push_back(d);
-        }
-        else
-        {
-            energy_error_message();
-        }
-    }
-
-    void command_3(vector <surface_factory *> &Sfactories, vector <air_factory *> &Afactories, vector <unit *> &all_units)
-    {
-        if(Sfactories.size() + Afactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 30)
-        {
-            if(Sfactories.size() > 0)
-            {
-                all_units.push_back(Sfactories[0]->build_engineer());
-            }
-            if(Afactories.size() > 0)
-            {
-                all_units.push_back(Afactories[0]->build_engineer());
+        command_1() = default;
+        void execute(int i, vector<main_unit *> &commander, vector<surface_factory *> &Sfactories,
+                     vector<surface_factory *> &sur_fact) override {
+            if (energy::energy_of_player >= sur_fact[i]->get_price()) {
+                auto d = commander[i]->create_surface_factory();
+                Sfactories.push_back(d);
+            } else {
+                energy_error_message();
             }
         }
-        else
-        {
-            error_message();
-        }
-    }
+    };
 
-    void command_4(vector <air_factory *> &Afactories, vector <unit *> &all_units)
-    {
-        if(Afactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 80)
-        {
-            {
-                all_units.push_back(Afactories[0]->build_fighter());
+        class command_2: public command {
+        public:
+
+            command_2() = default;
+            void execute(int i, vector<main_unit *> &commander, vector<air_factory *> &Afactories,
+                       vector<air_factory *> &air_fact) override{
+            if (energy::energy_of_player >= air_fact[i]->get_price()) {
+                auto d = commander[i]->create_air_factory();
+                Afactories.push_back(d);
+            } else {
+                energy_error_message();
             }
         }
-        else
-        {
-            error_message();
-        }
-    }
+    };
+    class command_3: public command {
+    public:
+
+        command_3() = default;
+            void execute(vector<surface_factory *> &Sfactories, vector<air_factory *> &Afactories,
+                         vector<unit *> &all_units) override{
+                if (Sfactories.size() + Afactories.size() > 0 && all_units.size() < 50 &&
+                    energy::energy_of_player >= 30) {
+                    if (Sfactories.size() > 0) {
+                        all_units.push_back(Sfactories[0]->build_engineer());
+                    }
+                    if (Afactories.size() > 0) {
+                        all_units.push_back(Afactories[0]->build_engineer());
+                    }
+                } else {
+                    error_message();
+                }
+            }
+        };
+
+        class command_4: public command {
+
+        public:
+
+            command_4() = default;
+            void execute(vector<air_factory *> &Afactories, vector<unit *> &all_units) override{
+                if (Afactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 80) {
+                    {
+                        all_units.push_back(Afactories[0]->build_fighter());
+                    }
+                } else {
+                    error_message();
+                }
+            }
+        };
 
 
-    void command_5(vector <air_factory *> &Afactories, vector <unit *> &all_units)
-    {
-        if(Afactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 75)
-        {
-            {
-                all_units.push_back(Afactories[0]->build_bomber());
+        class command_5: public command {
+        public:
+
+            command_5() = default;
+            void execute(vector<air_factory *> &Afactories, vector<unit *> &all_units) override{
+                if (Afactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 75) {
+                    {
+                        all_units.push_back(Afactories[0]->build_bomber());
+                    }
+                } else {
+                    error_message();
+                }
+            }
+        };
+
+        class command_6: public command {
+        public:
+
+            command_6() = default;
+            void execute(vector<surface_factory *> &Sfactories, vector<unit *> &all_units) override{
+                if (Sfactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 50) {
+                    {
+                        all_units.push_back(Sfactories[0]->build_fast_unit());
+                    }
+                } else {
+                    error_message();
+                }
+            }
+        };
+
+    class command_7: public command {
+    public:
+
+        command_7() = default;
+        void execute(vector<surface_factory *> &Sfactories, vector<unit *> &all_units) override{
+            if (Sfactories.size() > 0 && unit::amount_of_units < 50 && energy::energy_of_player >= 100) {
+                {
+                    all_units.push_back(Sfactories[0]->build_armor_unit());
+                }
+            } else {
+                error_message();
             }
         }
-        else
-        {
-            error_message();
-        }
-    }
+    };
 
-    void command_6(vector <surface_factory *> &Sfactories, vector <unit *> &all_units)
-    {
-        if(Sfactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 50)
-        {
-            {
-                all_units.push_back(Sfactories[0]->build_fast_unit());
+    class command_8: public command {
+    public:
+
+        command_8() = default;
+        void execute(vector<surface_factory *> &Sfactories, vector<unit *> &all_units) override{
+            if (Sfactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 75) {
+                {
+                    all_units.push_back(Sfactories[0]->build_airdefence());
+                }
+            } else {
+                error_message();
             }
         }
-        else
-        {
-            error_message();
-        }
-    }
+    };
 
-    void command_7(vector <surface_factory *> &Sfactories, vector <unit *> &all_units)
-    {
-        if(Sfactories.size() > 0 && unit::amount_of_units < 50 && energy::energy_of_player >= 100)
-        {
-            {
-                all_units.push_back(Sfactories[0]->build_armor_unit());
+    class command_9: public command {
+
+    public:
+
+        command_9() = default;
+
+        void execute(vector<surface_factory *> &Sfactories, vector<unit *> &all_units) override {
+            if (Sfactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 150) {
+                {
+                    all_units.push_back(Sfactories[0]->build_extra_unit());
+                }
+            } else {
+                error_message();
             }
         }
-        else
-        {
-            error_message();
-        }
-    }
-
-    void command_8(vector <surface_factory *> &Sfactories, vector <unit *> &all_units)
-    {
-        if(Sfactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 75)
-        {
-            {
-                all_units.push_back(Sfactories[0]->build_airdefence());
-            }
-        }
-        else
-        {
-            error_message();
-        }
-    }
-
-    void command_9(vector <surface_factory *> &Sfactories, vector <unit *> &all_units)
-    {
-        if(Sfactories.size() > 0 && all_units.size() < 50 && energy::energy_of_player >= 150)
-        {
-            {
-                all_units.push_back(Sfactories[0]->build_extra_unit());
-            }
-        }
-        else
-        {
-            error_message();
-        }
-    }
+    };
 
     void command_10(int i, vector <main_unit *> &commander)
     {
         commander[i]->create_generator();
     }
+    class command_war: public command {
+    public:
+        command_war(squad *one, squad *two) {
+            num1 = one;
+            num2 = two;
+        }
 
+        void execute() override {
+            if (num1->get_power() > num2->get_power())
+            {
+                std::cout << "First squad wins";
+            }
+            else
+            {
+                std::cout << "Second squad wins";
+            }
+        }
+    };
     void status_of_energy()
     {
         std::cout << energy::energy_of_player << std::endl;
@@ -237,38 +271,57 @@ public:
                 energy::energy_of_player = -1000000000;
                 break;
             }
+            button new_button;
             if(s == "1")
             {
-                command_1(i, commander, Sfactories, sur_fact);
+                auto com = new command_1;
+                new_button.some_command = com;
+                new_button.some_command->execute(i, commander, Sfactories, sur_fact);
             }
             if(s == "2")
             {
-                command_2(i, commander, Afactories, air_fact);
+                auto com = new command_2;
+                new_button.some_command = com;
+                new_button.some_command->execute(i, commander, Afactories, air_fact);
             }
             if(s == "3")
             {
-                command_3(Sfactories, Afactories, all_units);
+                auto com = new command_3;
+                new_button.some_command = com;
+                new_button.some_command->execute(Sfactories, Afactories, all_units);
             }
             else {
                 int size1 = all_units.size();
                 if (s == "4") {
 
-                    command_4(Afactories, all_units);
+                    auto com = new command_4;
+                    new_button.some_command = com;
+                    new_button.some_command->execute(Afactories, all_units);
                 }
                 if (s == "5") {
-                    command_5(Afactories, all_units);
+                    auto com = new command_5;
+                    new_button.some_command = com;
+                    new_button.some_command->execute(Afactories, all_units);
                 }
                 if (s == "6") {
-                    command_6(Sfactories, all_units);
+                    auto com = new command_6;
+                    new_button.some_command = com;
+                    new_button.some_command->execute(Sfactories, all_units);
                 }
                 if (s == "7") {
-                    command_7(Sfactories, all_units);
+                    auto com = new command_7;
+                    new_button.some_command = com;
+                    new_button.some_command->execute(Sfactories, all_units);
                 }
                 if (s == "8") {
-                    command_8(Sfactories, all_units);
+                    auto com = new command_8;
+                    new_button.some_command = com;
+                    new_button.some_command->execute(Sfactories, all_units);
                 }
                 if (s == "9") {
-                    command_9(Sfactories, all_units);
+                    auto com = new command_9;
+                    new_button.some_command = com;
+                    new_button.some_command->execute(Sfactories, all_units);
                 }
                 int size2 = all_units.size();
                 if(size2 > size1)
@@ -305,6 +358,16 @@ public:
             {
                 army *f = new army;
                 armies.push_back(f);
+            }
+            if(s == "attack")
+            {
+                int a, b;
+                cin >> a >> b;
+                a--;
+                b--;
+                command_war *y = new command_war(squads[a], squads[b]);
+                new_button.some_command = y;
+                new_button.some_command->execute();
             }
             //cout << squads.size() << endl;
         }
